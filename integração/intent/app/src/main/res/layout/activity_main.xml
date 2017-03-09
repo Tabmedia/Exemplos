@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:background="#fff"
+>
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_centerInParent="true"
+    >
+
+        <EditText android:id="@+id/speciality"
+                  android:layout_width="300dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="10dp"
+                  android:hint="@string/speciality"
+        />
+
+        <EditText android:id="@+id/crm"
+                  android:layout_width="300dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="10dp"
+                  android:hint="CRM"
+        />
+
+        <EditText android:id="@+id/crmuf"
+                  android:layout_width="300dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="10dp"
+                  android:hint="CRM UF"
+        />
+
+        <EditText android:id="@+id/doctor"
+                  android:layout_width="300dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="10dp"
+                  android:hint="@string/doctors_name"
+        />
+
+        <EditText android:id="@+id/visit"
+                  android:layout_width="300dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="10dp"
+                  android:hint="@string/visit"
+        />
+
+        <EditText android:id="@+id/products"
+                  android:layout_width="300dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="10dp"
+                  android:hint="@string/products"
+        />
+
+        <LinearLayout android:layout_width="wrap_content"
+                      android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/bt_open_tabmedia"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/open_tabmedia"
+            />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

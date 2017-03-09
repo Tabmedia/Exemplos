@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tabmedia Integration</string>
+    <string name="open_tabmedia">Show Presentation</string>
+    <string name="products">Products</string>
+    <string name="visit">Visit</string>
+    <string name="doctors_name">"Doctor's name"</string>
+    <string name="speciality">Speciality</string>
+</resources>

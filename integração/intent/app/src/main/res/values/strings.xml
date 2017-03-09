@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Tabmedia Integração</string>
+    <string name="open_tabmedia">Abrir Tabmedia</string>
+    <string name="products">Produtos</string>
+    <string name="visit">Visita</string>
+    <string name="doctors_name">Nome Doutor</string>
+    <string name="speciality">Especialidade</string>
+</resources>
