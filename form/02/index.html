@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="../js/jquery-2.1.4.min.js"></script>
+	<script src="../js/db.js"></script>
+</head>
+<body>
+<div id="count"></div>
+
+<!-- The Modal -->
+<div >
+
+  <!-- Modal content -->
+  <div>
+    <p>Enviando...</p>
+  </div>
+
+  <button onclick='postNext()'>Enviar</button>
+
+</div>
+
+
+<script type="text/javascript">
+
+	var URL = "coloque sua api aqui, lembre-se de que o endpoint precisa ter SSL e o header Access-Control-Allow-Origin";
+
+	var pendingItems;
+	var pendingItemsCount;
+	var sentCount = 0;
+
+	function startAnimation(){
+
+		getPendingItems(function (tx, results) {
+
+		    pendingItemsCount = results.rows.length;
+
+			document.querySelector('#count').innerHTML =  "<p>Itens: " + pendingItemsCount + "</p>";
+			
+			pendingItems = results.rows;
+		
+	   });
+	}
+
+	function postNext(){
+
+		if(sentCount >= pendingItemsCount){
+			alert("Enviado com sucesso");
+		}else{
+
+			data = pendingItems.item(sentCount).json;
+			id = pendingItems.item(sentCount).id;
+
+			$.ajax({
+			    type: 'POST',
+			    url: URL,
+			    crossDomain: true,
+			    data: data,
+			    success: function(responseData, textStatus, jqXHR) {
+
+					sentCount++;
+
+			        setItemsCountMessage(pendingItemsCount - sentCount);
+
+			        deleteItem(id);
+
+			        postNext();
+			    },
+			    error: function (responseData, textStatus, errorThrown) {
+			        alert("Erro ao enviar");
+			    }
+			});
+		}
+	}
+
+	function stopAnimation(){
+		window.location.reload();
+	}
+
+</script>
+</body>
+</html>

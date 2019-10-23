@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/db.js"></script>
+<meta http-equiv="Content-Security-Policy" content="img-src * 'self' data:; default-src * 'self' gap: ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; ">
+
+<title></title>
+</head>
+
+<body>
+	<div id="geral">
+	  	<form id="form">
+		   
+		   <div id="tela2" class="tela2">
+		   		
+		   			<input type="text"  class="texto t2i1" name="campoA"/>
+		        	<input type="text"  class="texto t2i2" name="campoB"/>
+		        	<input type="text"  class="texto t2i3" name="campoC"/>
+		   		
+		       
+		        <a href="javascript:saveData();" class="enviar">Salvar</a>
+		   </div>
+		</form> 
+	</div>
+
+	<script>
+
+		function startAnimation(){
+
+		}	
+
+		function saveData(){
+
+			var data = $('#form').serialize();
+
+
+			var onSuccess = function(){
+			    alert("Salvo com sucesso!");
+			    $('#form')[0].reset();
+			}
+
+			var onError = function(){
+			    alert("Erro ao salvar");
+			}
+
+			insert(data, onSuccess, onError);
+			
+		}
+	</script>
+</body>
+</html>
