@@ -1,6 +1,7 @@
 package br.com.tabmedia.integration;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void onClick(View v) {
 
-        Intent intent = new Intent();
+        /*Intent intent = new Intent();
         intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
         intent.setAction("br.com.tabmedia.openTabmedia");
 
@@ -47,7 +48,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         intent.putExtra("products", getValue(products));
         intent.putExtra("presentationNumber", Integer.valueOf(getValue(visit)));
 
-        sendBroadcast(intent);
+        sendBroadcast(intent);*/
+
+        Uri uri = Uri.parse("tabmedia://");
+
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        intent.putExtra("name", getValue(doctor));
+        intent.putExtra("crm", getValue(crm));
+        intent.putExtra("crmUF", getValue(crmUf));
+        intent.putExtra("specialityName", getValue(speciality));
+        intent.putExtra("products", getValue(products));
+        intent.putExtra("presentationNumber", Integer.valueOf(getValue(visit)));
+
+        startActivity(intent);
     }
 
     private String getValue(EditText editText) {
