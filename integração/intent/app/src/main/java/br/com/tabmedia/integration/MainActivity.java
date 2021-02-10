@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText products;
     private EditText speciality;
     private EditText visit;
+    private EditText categories;
 
 
     @Override
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         products = (EditText) findViewById(R.id.products);
         speciality = (EditText) findViewById(R.id.speciality);
         visit = (EditText) findViewById(R.id.visit);
+        categories = (EditText) findViewById(R.id.products_categories);
 
         Button btOpenTabmedia = (Button) findViewById(R.id.bt_open_tabmedia);
         btOpenTabmedia.setOnClickListener(this);
@@ -58,7 +60,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         intent.putExtra("crmUF", getValue(crmUf));
         intent.putExtra("specialityName", getValue(speciality));
         intent.putExtra("products", getValue(products));
-        intent.putExtra("presentationNumber", Integer.valueOf(getValue(visit)));
+        intent.putExtra("visit", Integer.valueOf(getValue(visit)));
+
+        String categoriesText = getValue(categories);
+
+        if(categoriesText != null){
+            String[] categoriesArray = categoriesText.split(",");
+            intent.putExtra("productsCategories", categoriesArray);
+        }
 
         startActivity(intent);
     }
